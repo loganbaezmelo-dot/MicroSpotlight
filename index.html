@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>MicroSpotlight - SM3DW Web Editor</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js + OrbitControls from unpkg CDN -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <div id="viewport-container"></div>
+
+  <!-- Top control toolbar -->
+  <header id="toolbar">
+    <div class="brand">⭐ MicroSpotlight</div>
+    <div class="actions">
+      <button id="btn-add-coin">+ Coin</button>
+      <button id="btn-add-goomba">+ Goomba</button>
+      <button id="btn-add-block">+ Block</button>
+      <button id="btn-add-pipe">+ Pipe</button>
+      <button id="btn-export" class="accent">Export JSON</button>
+      <label class="file-btn">
+        Import JSON
+        <input type="file" id="file-import" accept=".json">
+      </label>
+    </div>
+  </header>
+
+  <!-- Sidebar object inspector -->
+  <aside id="inspector">
+    <h3>Inspector</h3>
+    <div id="empty-state">Tap or click any object in 3D to edit properties.</div>
+    <div id="inspector-fields" class="hidden">
+      <label>Object Type
+        <input type="text" id="prop-name" readonly>
+      </label>
+
+      <fieldset>
+        <legend>Position (Translate)</legend>
+        <div class="coord-row">
+          <label>X <input type="number" step="10" id="prop-x"></label>
+          <label>Y <input type="number" step="10" id="prop-y"></label>
+          <label>Z <input type="number" step="10" id="prop-z"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Rotation (Degrees)</legend>
+        <div class="coord-row">
+          <label>RX <input type="number" step="15" id="prop-rx"></label>
+          <label>RY <input type="number" step="15" id="prop-ry"></label>
+          <label>RZ <input type="number" step="15" id="prop-rz"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Scale</legend>
+        <div class="coord-row">
+          <label>SX <input type="number" step="0.1" id="prop-sx"></label>
+          <label>SY <input type="number" step="0.1" id="prop-sy"></label>
+          <label>SZ <input type="number" step="0.1" id="prop-sz"></label>
+        </div>
+      </fieldset>
+
+      <button id="btn-delete" class="danger">Delete Object</button>
+    </div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
